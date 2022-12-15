@@ -7,7 +7,9 @@ async function getQuote() {
 
 async function userClicked() {
   const data = await getQuote();
-  return console.log(data);
+  const quote = data[0].quote;
+  const quoteText = document.getElementById("quote-text")
+  quoteText.textContent = quote
 }
 
 document.getElementById("quote").addEventListener("click", userClicked, false)
