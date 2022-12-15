@@ -8,8 +8,12 @@ async function getQuote() {
 async function userClicked() {
   const data = await getQuote();
   const quote = data[0].quote;
-  const quoteText = document.getElementById("quote-text")
-  quoteText.textContent = quote
+  const character = data[0].character;
+  const quoteText = document.getElementById("quote-text");
+  const characterSpan = document.getElementById("character");
+
+  quoteText.textContent = `"${quote}"`
+  characterSpan.textContent = `- ${character}`
 }
 
 document.getElementById("quote").addEventListener("click", userClicked, false)
